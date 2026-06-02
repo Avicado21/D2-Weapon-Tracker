@@ -6,12 +6,12 @@ TWIDs, TWAB posts, and Dev Insights.
 
 ## Features
 
-- 🔫 **Full weapon browser** — every Legendary and Exotic pulled live from the Bungie manifest
-- 🔍 **Search & filter** by name, type, rarity, ammo slot, and MoT change type
-- 🗂 **Browse by archetype or slot** (Kinetic/Special/Heavy)
-- 📋 **Click any weapon** for a detail page with full patch timeline
-- 🏆 **Tier list** based on the final sandbox
-- 📰 **Patch feed** — every TWID, patch note, and Dev Insight that touched weapons
+-  **Full weapon browser** — every Legendary and Exotic pulled live from the Bungie manifest
+-  **Search & filter** by name, type, rarity, ammo slot, and MoT change type
+-  **Browse by archetype or slot** (Kinetic/Special/Heavy)
+-  **Click any weapon** for a detail page with full patch timeline
+-  **Tier list** based on the final sandbox
+-  **Patch feed** — every TWID, patch note, and Dev Insight that touched weapons
 
 ## Setup
 
@@ -95,3 +95,7 @@ which run server-side and attach your `X-API-Key` header — no CORS issue.
 - The manifest JSON is ~300MB; the API route caches it in memory for 1 hour (`revalidate = 3600`)
 - First load after server restart will be slower (~2-5s) while the manifest fetches
 - For production, swap the in-memory cache in `lib/bungie.js` with Redis or a database
+
+- Destiny 2 content and materials are trademarks and copyrights of Bungie, Inc.
+- This project is not affiliated with or endorsed by Bungie.
+- Built using the Bungie.net API under the Bungie API Terms of Use
