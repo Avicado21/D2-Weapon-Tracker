@@ -22,7 +22,7 @@ TWIDs, TWAB posts, and Dev Insights.
 3. Click **Create New App**
 4. Fill in:
    - App Name: `d2-weapon-tracker` (or anything)
-   - Website: `http://localhost:3000`
+   - Website: `https://example.com`
    - OAuth Client Type: **None** (we only need public data)
 5. Copy your **API Key**
 
