@@ -41,7 +41,7 @@ npm install
 npm run dev
 ```
 
-Open [https://example.com](https://example.com).
+Open [http://localhost:3000](http://localhost:3000).
 
 ### 4. Deploy to Vercel (optional)
 
