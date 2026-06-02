@@ -2,8 +2,8 @@
 // app/page.jsx — Main weapons browser
 
 import { useState, useEffect, useCallback } from 'react'
-import WeaponCard from '@/components/WeaponCard'
-import { ARCHETYPE_CHANGES } from '@/lib/patchData'
+import WeaponCard from '../components/WeaponCard'
+import { ARCHETYPE_CHANGES } from '../lib/patchData'
 
 const WEAPON_TYPES = [
   'Auto Rifle','Hand Cannon','Scout Rifle','Pulse Rifle','Submachine Gun',

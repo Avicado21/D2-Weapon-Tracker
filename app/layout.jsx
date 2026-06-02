@@ -1,6 +1,6 @@
 // app/layout.jsx
 import './globals.css'
-import NavBar from '@/components/NavBar'
+import NavBar from '../components/NavBar'
 
 export const metadata = {
   title: 'D2 Weapon Tracker — Monument of Triumph Final Standing',

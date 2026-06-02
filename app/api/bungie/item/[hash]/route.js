@@ -9,7 +9,7 @@ export const revalidate = 3600
 
 export async function GET(request, { params }) {
   try {
-    const hash = parseInt(params.hash)
+    const hash = params.hash
     const weapon = await getWeaponByHash(hash)
 
     if (!weapon) {
