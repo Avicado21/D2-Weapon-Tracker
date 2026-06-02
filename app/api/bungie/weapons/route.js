@@ -34,7 +34,7 @@ export async function GET(request) {
         motChange: motData?.type || archetypeData?.change || 'none',
         motSummary: motData?.summary || archetypeData?.notes || null,
         hasCatalyst: motData?.catalyst || false,
-        isExotic: w.tierType === 5,
+        isExotic: Number(w.tierType) === 6,
         motChanges: motData?.changes || [],
       }
     })
@@ -51,8 +51,8 @@ export async function GET(request) {
       weapons = weapons.filter(w => w.weaponTypeName === typeFilter)
     }
     if (rarityFilter) {
-      const rarityInt = rarityFilter === 'Exotic' ? 5 : rarityFilter === 'Legendary' ? 4 : null
-      if (rarityInt) weapons = weapons.filter(w => w.tierType === rarityInt)
+      const rarityInt = rarityFilter === 'Exotic' ? 6 : rarityFilter === 'Legendary' ? 5 : null
+      if (rarityInt) weapons = weapons.filter(w => Number(w.tierType) === rarityInt)
     }
     if (ammoFilter) {
       const ammoInt = { Primary: 1, Special: 2, Heavy: 3 }[ammoFilter]

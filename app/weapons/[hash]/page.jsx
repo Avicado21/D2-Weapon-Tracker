@@ -1,7 +1,6 @@
 'use client'
-// app/weapons/[hash]/page.jsx — Individual weapon detail page (like light.gg/db/items/[hash])
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, use } from 'react'
 import Link from 'next/link'
 
 const CHANGE_COLORS = {
@@ -19,12 +18,13 @@ const SOURCE_STYLES = {
 }
 
 export default function WeaponDetailPage({ params }) {
+  const { hash } = use(params)
   const [weapon, setWeapon] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
 
   useEffect(() => {
-    fetch(`/api/bungie/item/${params.hash}`)
+    fetch(`/api/bungie/item/${hash}`)
       .then(r => r.json())
       .then(data => {
         if (!data.success) throw new Error(data.error)
@@ -32,7 +32,7 @@ export default function WeaponDetailPage({ params }) {
       })
       .catch(e => setError(e.message))
       .finally(() => setLoading(false))
-  }, [params.hash])
+  }, [hash])
 
   if (loading) return (
     <div style={{ textAlign: 'center', padding: '4rem', color: '#4a9eff', fontSize: '14px' }}>
@@ -54,12 +54,10 @@ export default function WeaponDetailPage({ params }) {
 
   return (
     <div style={{ maxWidth: '900px' }}>
-      {/* Back */}
       <Link href="/" style={{ fontSize: '13px', color: '#8a92a6', display: 'flex', alignItems: 'center', gap: '4px', marginBottom: '1.5rem' }}>
         ← All Weapons
       </Link>
 
-      {/* Hero */}
       <div style={{
         background: '#161920',
         border: `1px solid ${isExotic ? '#c89b3c30' : '#8a6bbf20'}`,
@@ -118,7 +116,6 @@ export default function WeaponDetailPage({ params }) {
             </p>
           )}
 
-          {/* MoT change summary */}
           {weapon.motChange && weapon.motChange !== 'none' && (
             <div style={{
               background: '#0a0c10', border: '1px solid rgba(255,255,255,0.06)',
@@ -137,7 +134,6 @@ export default function WeaponDetailPage({ params }) {
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-        {/* MoT Changes */}
         {weapon.motChanges?.length > 0 && (
           <div style={{
             background: '#161920', border: '1px solid rgba(255,255,255,0.06)',
@@ -149,9 +145,7 @@ export default function WeaponDetailPage({ params }) {
             {weapon.motChanges.map((c, i) => {
               const ct = CHANGE_COLORS[c.changeType] || CHANGE_COLORS.neutral
               return (
-                <div key={i} style={{
-                  position: 'relative', paddingLeft: '18px', marginBottom: '10px',
-                }}>
+                <div key={i} style={{ position: 'relative', paddingLeft: '18px', marginBottom: '10px' }}>
                   <div style={{
                     position: 'absolute', left: 4, top: 5,
                     width: 8, height: 8, borderRadius: '50%', background: ct.color,
@@ -174,7 +168,6 @@ export default function WeaponDetailPage({ params }) {
           </div>
         )}
 
-        {/* Archetype notes */}
         {weapon.archetypeNotes && (
           <div style={{
             background: '#161920', border: '1px solid rgba(255,255,255,0.06)',
@@ -190,7 +183,6 @@ export default function WeaponDetailPage({ params }) {
         )}
       </div>
 
-      {/* Patch history */}
       {weapon.patchHistory?.length > 0 && (
         <div style={{
           background: '#161920', border: '1px solid rgba(255,255,255,0.06)',
