@@ -96,6 +96,7 @@ which run server-side and attach your `X-API-Key` header — no CORS issue.
 - First load after server restart will be slower (~2-5s) while the manifest fetches
 - For production, swap the in-memory cache in `lib/bungie.js` with Redis or a database
 
-- Destiny 2 content and materials are trademarks and copyrights of Bungie, Inc.
-- This project is not affiliated with or endorsed by Bungie.
-- Built using the Bungie.net API under the Bungie API Terms of Use
+## Licensing notes
+Destiny 2 content and materials are trademarks and copyrights of Bungie, Inc.
+This project is not affiliated with or endorsed by Bungie.
+Built using the Bungie.net API under the Bungie API Terms of Use
